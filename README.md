@@ -1,2 +1,1 @@
-# Projet-5-Openclassroom
- projet javascript caroussel
+# Print-It WebSite v.1

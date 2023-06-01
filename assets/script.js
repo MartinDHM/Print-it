@@ -19,7 +19,7 @@ const slides = [
 	
 ]
 const flecheGauche = document.querySelector(".arrow_left")
-flecheGauche.addEventListener("click", slidedroite );
+flecheGauche.addEventListener("click", slidegauche );
 
 const flecheDroite = document.querySelector(".arrow_right")
 flecheDroite.addEventListener("click", slidedroite);
@@ -31,9 +31,26 @@ function slidedroite() {
 	else {
 		i=i+1
 	}
-	console.log(slides[i])
+	
 	let fondBanniere = document.querySelector(".banner-img") 
-	fondBanniere.setAttribute("src","./assets/images/slideshow/"+slides[i].image)	
+	fondBanniere.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
+	
+	let texteBanniere = document.querySelector(".text")
+	texteBanniere.innerHTML= slides[i].tagLine
+}
+function slidegauche() {
+	if (i<1){
+		i=3
+	}
+	else {
+		i=i-1
+	}
+	console.log(i)
+	let fondBanniere = document.querySelector(".banner-img") 
+	fondBanniere.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
+	
+	let texteBanniere = document.querySelector(".text")
+	texteBanniere.innerHTML= slides[i].tagLine
 }
 
   

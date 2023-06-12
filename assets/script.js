@@ -24,70 +24,73 @@ flecheGauche.addEventListener("click", slidegauche );
 const flecheDroite = document.querySelector(".arrow_right")
 flecheDroite.addEventListener("click", slidedroite);
 
+const bannerImage = document.querySelector(".banner-img");
+
+const bannerTitle = document.querySelector("#banner>p")
+
+/* creation des points*/
+const dotsDiv = document.querySelector(".dots")
+
+for ( let i = 0; i < slides.length; i++) {
+	
+	const dot = document.createElement("div")
+	dot.className = "dot"
+
+	dotsDiv.appendChild(dot)
+}
+
+let dotselect = document.querySelectorAll(".dot")
+dotselect[i].classList.add("dot_selected")
+
 /* fonction fleche de droite*/
 function slidedroite() {
-
-	if (i>2){
-		let pointNotTarget = document.getElementById(i)
-		pointNotTarget.setAttribute("class","dot")
-		
-		i=0
-		
-		let pointTarget = document.getElementById(i)
-		pointTarget.setAttribute("class","dot dot_selected")
-	}
 	
+	dotselect[i].classList.remove("dot_selected");
+	// si i est supérieur ou égal à la longueur du tableau slides alors on revient au premier slide
+	if (i >= slides.length - 1) {
+		i = 0
+	}
 	else {
-		let pointNotTarget = document.getElementById(i)
-		pointNotTarget.setAttribute("class","dot")
-
-		i=i+1
-
-		let pointTarget = document.getElementById(i)
-		pointTarget.setAttribute("class","dot dot_selected")
-		
+		// sinon on incrémente i
+		i++
+	}
+	// On ajoute la classe "dot_selected" au nouveau dot correspondant au slide affiché
+	dotselect[i].classList.add("dot_selected");
+	
+	// On change l'image et la titre
+	bannerImage.src = `./assets/images/slideshow/${slides[i].image}`;
+	
+	bannerTitle.innerHTML = slides[i].tagLine;
+	
 	}
 		console.log(i)
 	
-	
-
-	let fondBanniere = document.querySelector(".banner-img") 
-	fondBanniere.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
-	
-	let texteBanniere = document.querySelector(".text")
-	texteBanniere.innerHTML= slides[i].tagLine
-	
-	let point = document.querySelector(".dots")
-	}	
+		
+		
 
 /* fonction fleche de gauche*/
 function slidegauche() {
-	if (i<1){
-		let pointNotTarget = document.getElementById(i)
-		pointNotTarget.setAttribute("class","dot")
-		
-		i=3
-
-		let pointTarget = document.getElementById(i)
-		pointTarget.setAttribute("class","dot dot_selected")
-	}
+	dotselect[i].classList.remove("dot_selected");
+	if (i <= 0) {
+		i = slides.length - 1;
+	} 
 	else {
-		let pointNotTarget = document.getElementById(i)
-		pointNotTarget.setAttribute("class","dot")
-
-		i=i-1
-
-		let pointTarget = document.getElementById(i)
-		pointTarget.setAttribute("class","dot dot_selected")
-	}
-	console.log(i)
-	let fondBanniere = document.querySelector(".banner-img") 
-	fondBanniere.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
+		// sinon on décrémente i
+		i--			
+	}	
 	
-	let texteBanniere = document.querySelector(".text")
-	texteBanniere.innerHTML= slides[i].tagLine
+	// On ajoute la classe "dot_selected" au nouveau dot correspondant au slide affiché
+	
+	dotselect[i].classList.add("dot_selected");
+	
+	// On change l'image et la titre
+	bannerImage.src = `./assets/images/slideshow/${slides[i].image}`;
+	
+	bannerTitle.innerHTML = slides[i].tagLine;
+	
 	
 }
 
+console.log(i)
   
 

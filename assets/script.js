@@ -18,6 +18,8 @@ const slides = [
 	}
 	
 ]
+/* élément à modifiés*/
+
 const flecheGauche = document.querySelector(".arrow_left")
 flecheGauche.addEventListener("click", slidegauche );
 
@@ -51,7 +53,7 @@ function slidedroite() {
 		i = 0
 	}
 	else {
-		// sinon on incrémente i
+		// sinon on incrémente i 
 		i++
 	}
 	// On ajoute la classe "dot_selected" au nouveau dot correspondant au slide affiché
@@ -71,11 +73,12 @@ function slidedroite() {
 /* fonction fleche de gauche*/
 function slidegauche() {
 	dotselect[i].classList.remove("dot_selected");
+	// si i est inférieur ou égal à la longueur du tableau slides alors on revient au premier slide
 	if (i <= 0) {
 		i = slides.length - 1;
 	} 
 	else {
-		// sinon on décrémente i
+		// sinon on décrémente i 
 		i--			
 	}	
 	
